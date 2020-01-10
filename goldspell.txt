@@ -1,0 +1,21 @@
+Scriptname goldspell extends activemagiceffect 
+
+MiscObject property Sum Auto
+
+Event OnEffectFinish(Actor akTarget, Actor akCaster)
+	float  playersSkill = Game.GetPlayer().GetBaseActorValue("enchanting")
+	;Debug.Notification("connect with script")
+	;akCaster == Game.GetPlayer()
+
+	;Game.GetPlayer().AddItem(Sum, 1, true)
+	;Debug.Notification("added an ingot")
+
+    if playersSkill <= 49
+      Game.GetPlayer().AddItem(Sum, 1, true)
+    else
+       playersSkill >= 50
+      Game.GetPlayer().AddItem(Sum, 2, true)
+    
+    endif
+endEvent
+
